@@ -36,8 +36,10 @@
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.cancelButton = new System.Windows.Forms.Button();
             this.okButton = new System.Windows.Forms.Button();
-            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.genresControl = new WindowsFormsMusic.GenresControl();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.genreTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -91,15 +93,17 @@
             this.tableLayoutPanel2.Controls.Add(this.titleTextBox, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.authorTextBox, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.releaseDatePicker, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.genreTextBox, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(308, 203);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
@@ -201,10 +205,6 @@
             this.okButton.UseVisualStyleBackColor = true;
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // errorProvider
-            // 
-            this.errorProvider.ContainerControl = this;
-            // 
             // genresControl
             // 
             this.genresControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -214,6 +214,29 @@
             this.genresControl.Name = "genresControl";
             this.genresControl.Size = new System.Drawing.Size(263, 244);
             this.genresControl.TabIndex = 0;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 78);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(36, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Genre";
+            // 
+            // genreTextBox
+            // 
+            this.genreTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.genreTextBox.Location = new System.Drawing.Point(81, 81);
+            this.genreTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 20, 3);
+            this.genreTextBox.Name = "genreTextBox";
+            this.genreTextBox.ReadOnly = true;
+            this.genreTextBox.Size = new System.Drawing.Size(207, 20);
+            this.genreTextBox.TabIndex = 8;
             // 
             // SongDetailsForm
             // 
@@ -254,5 +277,7 @@
         private System.Windows.Forms.Button okButton;
         private GenresControl genresControl;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox genreTextBox;
     }
 }

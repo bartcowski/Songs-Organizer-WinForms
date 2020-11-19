@@ -21,7 +21,7 @@ namespace WindowsFormsMusic {
         }
         private Genre genreState;
 
-        public event Action<string> UpdateGenreImageEvent;
+        public event Action<Genre> UpdateGenreImageEvent;
 
         public GenresControl() {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace WindowsFormsMusic {
 
         public void changeGenreImage() {
             setImageForGenreState();
-            UpdateGenreImageEvent?.Invoke("");
+            UpdateGenreImageEvent?.Invoke(Genre);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e) {
@@ -51,9 +51,5 @@ namespace WindowsFormsMusic {
                     break;
             }
         }
-
-        //private void GenresControl_Load(object sender, EventArgs e) {
-
-        //}
     }
 }

@@ -38,16 +38,22 @@ namespace WindowsFormsMusic {
         }
 
         private void SongDetailsForm_Load(object sender, EventArgs e) {
-            //genresControl.UpdateGenreImageEvent += genresControl.genresControl_ChangeGenreImageEvent;
+            genresControl.UpdateGenreImageEvent += genresControl_ChangeGenreImageEvent;
 
             if (song != null) {
                 titleTextBox.Text = song.Title;
                 authorTextBox.Text = song.Author;
                 releaseDatePicker.Value = song.ReleaseDate;
+                genreTextBox.Text = song.Genre.ToString();
 
             } else {
                 releaseDatePicker.Value = new DateTime(2000, 1, 1);
+                genreTextBox.Text = genresControl.Genre.ToString();
             }
+        }
+
+        private void genresControl_ChangeGenreImageEvent(Genre genre) {
+            genreTextBox.Text = genre.ToString();
         }
 
         private void okButton_Click(object sender, EventArgs e) {
