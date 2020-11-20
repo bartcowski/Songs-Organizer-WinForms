@@ -7,11 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Design;
+using System.Windows.Forms.Design;
 
 namespace WindowsFormsMusic {
     public partial class GenresControl : UserControl {
 
-        [BrowsableAttribute(true)]
+        [Editor(typeof(GenresControlEditor), 
+         typeof(System.Drawing.Design.UITypeEditor))]
+        [Browsable(true)]
         [Category("Image")]
         public Genre Genre {
             get { return genreState; }
@@ -51,5 +55,36 @@ namespace WindowsFormsMusic {
                     break;
             }
         }
+    }
+
+    [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
+    public class GenresControlEditor : System.Drawing.Design.UITypeEditor {
+
+        public GenresControlEditor() {
+        }
+
+        public override System.Drawing.Design.UITypeEditorEditStyle GetEditStyle(System.ComponentModel.ITypeDescriptorContext context) {
+            return UITypeEditorEditStyle.DropDown;
+        }
+
+        public override object EditValue(System.ComponentModel.ITypeDescriptorContext context, System.IServiceProvider provider, object value) {
+            IWindowsFormsEditorService edSvc = (IWindowsFormsEditorService)provider.GetService(typeof(IWindowsFormsEditorService));
+            if (edSvc != null) {
+                GenresControl genresControl = new GenresControl();
+                edSvc.DropDownControl(genresControl);
+
+                return genresControl.Genre;
+            }
+            return value;
+        }
+
+        //public override void PaintValue(System.Drawing.Design.PaintValueEventArgs e) {
+        //    // TODO
+        //}
+
+        //public override bool GetPaintValueSupported(System.ComponentModel.ITypeDescriptorContext context) {
+        //    return true;
+        //}
+
     }
 }
